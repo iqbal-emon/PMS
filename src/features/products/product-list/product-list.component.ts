@@ -61,8 +61,11 @@ export class ProductListComponent implements OnInit {
     } else {
       this.filteredProductList = [...this.productList];
     }
+  
+    this.currentPage = 1; // Reset to first page after search
     this.updatePagination();
   }
+  
 
   updatePageSize(event: Event) {
     const inputSize = +(event.target as HTMLInputElement).value;

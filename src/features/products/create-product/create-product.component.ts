@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -5,7 +6,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterModule],
+  imports: [ReactiveFormsModule,RouterModule,NgFor],
   templateUrl: './create-product.component.html',
   styleUrls: ['./create-product.component.css'] // Corrected from 'styleUrl' to 'styleUrls'
 })
@@ -41,6 +42,7 @@ export class CreateProductComponent {
       this.productList = JSON.parse(existingData);
       const product = this.productList[index];
       if (product) {
+        console.log("product is",product)
         this.productForm.patchValue(product);
       }
     }
@@ -56,6 +58,16 @@ export class CreateProductComponent {
   }
   onSubmit() {
     const formData = this.productForm.value;
+    const existingData1=localStorage.getItem('productList')
+    if(existingData1){
+
+      this.productList=JSON.parse(existingData1);
+    }
+    const categoryCount = this.productList.filter(product => product.category === formData.category).length;
+    if (categoryCount >= 10) {
+      alert('You cannot add more than 10 products in the same category.');
+      return;
+    }
 
     const existingData = localStorage.getItem('productList');
     this.productList = existingData ? JSON.parse(existingData) : [];

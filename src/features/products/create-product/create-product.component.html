@@ -26,15 +26,14 @@
                             <label for="category" class="form-label">Category</label>
                             <select formControlName="category" class="form-select" id="category">
                                 <option value="">-- Please Select --</option>
-                                <option value="Fitness And Health">Fitness And Health</option>
-                                <option value="Super Food">Super Food</option>
-                                <option value="Beauty Products">Beauty Products</option>
-                                <option value="Electronics">Electronics</option>
-                            </select>
+                                <option *ngFor="let category of categories" [value]="category">
+                                  {{ category }}
+                                </option>
+                              </select>
                         </div>
                         <div class="mb-3">
                             <label for="quantity" class="form-label">Quantity <span class="text-danger">*</span></label>
-                            <input type="number" formControlName="quantity" class="form-control" id="quantity" placeholder="Enter quantity">
+                            <input  type="number" formControlName="quantity" class="form-control" id="quantity" placeholder="Enter quantity">
                         </div>
                         <div class="mb-3">
                             <label for="unitPrice" class="form-label">Unit Price <span class="text-danger">*</span></label>
