@@ -1,12 +1,19 @@
-# ProductManagementSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
 
-## Getting Started
+## Get started
 
-### Prerequisites
+### Clone the repo
 
-- Make sure you have Node.js and npm installed. You can download them from [nodejs.org](https://nodejs.org/).
-- This project requires Angular CLI version 17.3.9. To install Angular CLI globally, run:
-  ```bash
-  npm install -g @angular/cli@17.3.9
+```shell
+git clone https://github.com/iqbal-emon/PMS.git
+cd PMS
+```
+
+### Install npm packages
+
+Install the `npm` packages described in the `package.json` and verify that it works:
+
+```shell
+npm install
+ng serve
+```
