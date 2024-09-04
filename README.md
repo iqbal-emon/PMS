@@ -11,9 +11,11 @@ cd PMS
 
 ### Install npm packages
 
-Install the `npm` packages described in the `package.json` and verify that it works:
 
 ```shell
 npm install
 ng serve
 ```
+### Prerequisite
+Ensure that Angular version 17 or higher is installed.
+
